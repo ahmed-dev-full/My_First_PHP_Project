@@ -8,7 +8,11 @@ define('VIEWS_PATH', $root . 'views' . DIRECTORY_SEPARATOR);
 /* YOUR CODE (Instructions in README.md) */
 require APP_PATH . 'App.php';
 $files = gettransactionfile(FILES_PATH);
-// var_dump($files);
-// print_r(gettransaction())
+$transactions=[];
+foreach ($files as $file) {
+    $transactions = array_merge($transactions, gettransaction($file));
+}
+require VIEWS_PATH . 'transactions.php';
+
 ?>
 
