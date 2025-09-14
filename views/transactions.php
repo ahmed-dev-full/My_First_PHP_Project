@@ -38,30 +38,32 @@
             </tr>
         </thead>
         <tbody>
-        <?php if (! empty($transactions)):?>
-            <?php foreach ($transactions as $transaction):?>
-                <tr>
-                    <td><?= $transaction['date'] ?></td>
-                    <td><?= $transaction['transaction'] ?></td>
-                    <td><?= $transaction['description'] ?></td>
-                    <td><?= $transaction['amount'] ?></td>
-                </tr>
-            <?php endforeach ?>
+            <?php if (!empty($transactions)): ?>
+                <?php foreach ($transactions as $transaction): ?>
+                    <tr>
+                        <td><?= $transaction['date'] ?></td>
+                        <td><?= $transaction['transaction'] ?></td>
+                        <td><?= $transaction['description'] ?></td>
+                        <td><?= $transaction['amountColor'] ?></td>
+                    </tr>
+                <?php endforeach ?>
             <?php endif ?>
         </tbody>
         <tfoot>
-            <tr>
-                <th colspan="3">Total Income:</th>
-                <td><!-- YOUR CODE --></td>
-            </tr>
-            <tr>
-                <th colspan="3">Total Expense:</th>
-                <td><!-- YOUR CODE --></td>
-            </tr>
-            <tr>
-                <th colspan="3">Net Total:</th>
-                <td><!-- YOUR CODE --></td>
-            </tr>
+            <?php if (!empty($transactions)): ?>
+                <tr>
+                    <th colspan="3">Total Income:</th>
+                    <td><?= $transaction['total_positive'] ?></td>
+                </tr>
+                <tr>
+                    <th colspan="3">Total Expense:</th>
+                    <td><?= $transaction['total_negative'] ?>
+                </tr>
+                <tr>
+                    <th colspan="3">Net Total:</th>
+                    <td><?= $transaction['net_total'] ?></td>
+                </tr>
+            <?php endif ?>
         </tfoot>
     </table>
 </body>
