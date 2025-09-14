@@ -11,8 +11,11 @@ $files = gettransactionfile(FILES_PATH);
 $transactions=[];
 foreach ($files as $file) {
     $transactions = array_merge($transactions, gettransaction($file));
-}
-require VIEWS_PATH . 'transactions.php';
+};
+
+
+
+include VIEWS_PATH . 'transactions.php';
 
 ?>
 
