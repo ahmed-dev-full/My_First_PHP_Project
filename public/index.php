@@ -14,7 +14,6 @@ foreach ($files as $file) {
 };
 
 
-
 include VIEWS_PATH . 'transactions.php';
 
 ?>
